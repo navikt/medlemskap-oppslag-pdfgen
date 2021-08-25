@@ -1,0 +1,40 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: {{app}}
+  namespace: {{namespace}}
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "20M"
+  labels:
+    team: {{team}}
+spec:
+  image: {{ image }}
+  port: 8080
+  ingresses:
+    - {{ingress}}
+  replicas:
+    min: 2
+    max: 4
+    cpuThresholdPercentage: 70
+  liveness:
+    path: /is_alive
+    timeout: 1
+    initialDelay: 5
+    periodSeconds: 5
+    failureThreshold: 30
+  readiness:
+    path: /is_alive
+    timeout: 1
+    initialDelay: 5
+    periodSeconds: 5
+    failureThreshold: 30
+  prometheus:
+    enabled: true
+    path: /prometheus
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 200m
+      memory: 128Mi

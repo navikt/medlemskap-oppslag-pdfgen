@@ -1,0 +1,432 @@
+{{#eq svartype "CHECKBOX"}}
+    {{#each svar as |s index|~}}
+        {{#eq verdi "CHECKED"}}
+            <div class="oppsummering__sporsmalscontainer">
+                <div class="oppsummering__avkrysset">
+                    <img class="checkbox" src="{{ image "Checkboks.png" }}"/>
+                    <span class="svar svar--checkbox">{{ sporsmalstekst }}</span>
+                </div>
+                {{# if undersporsmal }}
+                    <div class="oppsummering__undersporsmalsliste">
+                        {{# each undersporsmal as |underspm index| ~}}
+                            {{> syfosoknader/partials/spmpartial underspm}}
+                        {{/each}}
+                    </div>
+                {{/if}}
+            </div>
+        {{/eq}}
+    {{/each}}
+{{/eq}}
+
+{{#eq svartype "RADIO"}}
+    {{#each svar as |s index|~}}
+        {{#eq verdi "CHECKED"}}
+            <div class="oppsummering__sporsmalscontainer">
+                <div class="oppsummering__avkrysset">
+                    <img class="checkbox" src="{{ image "Checkboks.png" }}"/>
+                    <span class="svar svar--checkbox">{{ sporsmalstekst }}</span>
+                </div>
+                {{# if undersporsmal }}
+                    <div class="oppsummering__undersporsmalsliste">
+                        {{# each undersporsmal as |underspm index| ~}}
+                            {{> syfosoknader/partials/spmpartial underspm}}
+                        {{/each}}
+                    </div>
+                {{/if}}
+            </div>
+        {{/eq}}
+    {{/each}}
+{{/eq}}
+
+{{#eq svartype "RADIO_DATO"}}
+    {{#each svar as |s index|~}}
+        {{#eq verdi "CHECKED"}}
+            <div class="oppsummering__sporsmalscontainer">
+                <div class="oppsummering__avkrysset">
+                    <img class="checkbox" src="{{ image "Checkboks.png" }}"/>
+                    <span class="svar svar--checkbox">{{ iso_to_date sporsmalstekst }}</span>
+                </div>
+                {{# if undersporsmal }}
+                    <div class="oppsummering__undersporsmalsliste">
+                        {{# each undersporsmal as |underspm index| ~}}
+                            {{> syfosoknader/partials/spmpartial underspm}}
+                        {{/each}}
+                    </div>
+                {{/if}}
+            </div>
+        {{/eq}}
+    {{/each}}
+{{/eq}}
+
+{{#eq svartype "DATO"}}
+    {{#if this.sporsmalstekst}}
+        <h3 class="sporsmalstekst">
+            {{ this.sporsmalstekst }}
+        </h3>
+    {{/if}}
+    {{#if this.undertekst}}
+        <p class="undertekst">
+            {{ this.undertekst }}
+        </p>
+    {{/if }}
+    {{# each svar }}
+        <p class="svar svar--dato">
+            {{ iso_to_date verdi }}
+        </p>
+    {{/each}}
+{{/eq}}
+
+{{#eq svartype "CHECKBOX_GRUPPE"}}
+    <div class="oppsummering__sporsmalscontainer">
+        {{#if this.sporsmalstekst }}
+            <h3 class="sporsmalstekst">{{ this.sporsmalstekst }}</h3>
+        {{/if}}
+        {{#if this.undertekst}}
+            <p class="undertekst">
+                {{ this.undertekst }}
+            </p>
+        {{/if }}
+        {{# each svar }}
+            <p class="svar">
+                {{verdi}}
+            </p>
+        {{/each}}
+        {{# if undersporsmal }}
+            <div class="oppsummering__undersporsmalsliste">
+                {{# each undersporsmal as |underspm index| ~}}
+                    {{> syfosoknader/partials/spmpartial underspm}}
+                {{/each}}
+            </div>
+        {{/if}}
+    </div>
+{{/eq}}
+
+{{#eq svartype "RADIO_GRUPPE"}}
+    <div class="oppsummering__sporsmalscontainer">
+        <h3 class="sporsmalstekst">{{ sporsmalstekst }}</h3>
+        {{#if this.undertekst}}
+            <p class="undertekst">
+                {{ this.undertekst }}
+            </p>
+        {{/if }}
+        {{# each svar }}
+            <p class="svar">
+                {{verdi}}
+            </p>
+        {{/each}}
+        {{# if undersporsmal }}
+            <div class="oppsummering__undersporsmalsliste">
+                {{# each undersporsmal as |underspm index| ~}}
+                    {{> syfosoknader/partials/spmpartial underspm}}
+                {{/each}}
+            </div>
+        {{/if}}
+    </div>
+{{/eq}}
+
+{{#eq svartype "RADIO_GRUPPE_UKEKALENDER"}}
+    <div class="oppsummering__sporsmalscontainer">
+        <h3 class="sporsmalstekst">{{ sporsmalstekst }}</h3>
+        {{# each svar }}
+            <p class="svar svar--dato">
+                {{#eq verdi "Ikke til behandling" }}
+                    Ikke til behandling
+                {{/eq}}
+                {{#not_eq verdi "Ikke til behandling" }}
+                    {{ iso_to_date verdi }}
+                {{/not_eq}}
+            </p>
+        {{/each}}
+    </div>
+{{/eq}}
+
+
+{{#eq svartype "RADIO_GRUPPE_TIMER_PROSENT"}}
+    <div class="oppsummering__sporsmalscontainer">
+        <h3 class="sporsmalstekst">{{ sporsmalstekst }}</h3>
+        {{#if this.undertekst}}
+            <p class="undertekst">
+                {{ this.undertekst }}
+            </p>
+        {{/if }}
+        {{# each svar }}
+            <p class="svar">
+                {{verdi}}
+            </p>
+        {{/each}}
+        {{# if undersporsmal }}
+            <div class="oppsummering__undersporsmalsliste">
+                {{# each undersporsmal as |underspm index| ~}}
+                    {{# each underspm.svar}}
+                        {{#eq verdi "CHECKED"}}
+                            {{# each underspm.undersporsmal as |underunderspm index| ~}}
+                                {{> syfosoknader/partials/spmpartial underunderspm}}
+                            {{/each}}
+                        {{/eq}}
+                    {{/each}}
+                {{/each}}
+            </div>
+        {{/if}}
+    </div>
+{{/eq}}
+
+
+{{#eq svartype "PERIODER"}}
+    {{#if this.sporsmalstekst}}
+        <h3 class="sporsmalstekst">
+            {{ this.sporsmalstekst }}
+        </h3>
+    {{/if}}
+    {{#if this.undertekst}}
+        <p class="undertekst">
+            {{ this.undertekst }}
+        </p>
+    {{/if }}
+    {{# each svar }}
+        <p class="svar svar--dato">
+            {{ json_to_period verdi}}
+        </p>
+    {{/each}}
+{{/eq}}
+
+{{#eq svartype "LAND"}}
+    {{#if this.sporsmalstekst}}
+        <h3 class="sporsmalstekst">
+            {{ this.sporsmalstekst }}
+        </h3>
+    {{/if}}
+    {{#if this.undertekst}}
+        <p class="undertekst">
+            {{ this.undertekst }}
+        </p>
+    {{/if }}
+    {{# each svar }}
+        <p class="svar svar--land">
+            {{ verdi}}
+        </p>
+    {{/each}}
+{{/eq}}
+
+{{#eq svartype "FRITEKST"}}
+    {{#if this.sporsmalstekst}}
+        <h3 class="sporsmalstekst">
+            {{ this.sporsmalstekst }}
+        </h3>
+    {{/if}}
+    {{#if this.undertekst}}
+        <p class="undertekst">
+            {{ this.undertekst }}
+        </p>
+    {{/if }}
+    <p class="svar">
+        {{ svar.0.verdi }}
+    </p>
+{{/eq}}
+
+{{#eq svartype "JA_NEI"}}
+    <div class="oppsummering__sporsmalscontainer">
+        {{#if this.sporsmalstekst}}
+            <h3 class="sporsmalstekst">
+                {{ this.sporsmalstekst }}
+            </h3>
+        {{/if}}
+        {{#if this.undertekst}}
+            <p class="undertekst">
+                {{ this.undertekst }}
+            </p>
+        {{/if }}
+        <div class="oppsummering__avkrysset">
+            <img class="checkbox" src="{{ image "Checkboks.png" }}"/>
+            <span class="svar svar--checkbox">
+                {{ capitalize svar.0.verdi }}
+            </span>
+        </div>
+        {{#not_eq this.tag "ANDRE_INNTEKTSKILDER" }}
+            {{#eq svar.0.verdi kriterieForVisningAvUndersporsmal }}
+                {{# if undersporsmal }}
+                    <div class="oppsummering__undersporsmalsliste">
+                        {{# each undersporsmal as |underspm index| ~}}
+                            {{> syfosoknader/partials/spmpartial underspm}}
+                        {{/each}}
+                    </div>
+                {{/if}}
+            {{/eq}}
+        {{/not_eq}}
+        {{#eq this.tag "ANDRE_INNTEKTSKILDER" }}
+            {{#if tilNav }}
+                {{#eq svar.0.verdi kriterieForVisningAvUndersporsmal }}
+                    {{# if undersporsmal }}
+                        <div class="oppsummering__undersporsmalsliste">
+                            {{# each undersporsmal as |underspm index| ~}}
+                                {{> syfosoknader/partials/spmpartial underspm}}
+                            {{/each}}
+                        </div>
+                    {{/if}}
+                {{/eq}}
+            {{/if}}
+        {{/eq}}
+    </div>
+{{/eq}}
+
+{{#eq svartype "TIMER"}}
+    <div class="oppsummering__sporsmalscontainer">
+        {{#if this.sporsmalstekst}}
+            <h3 class="sporsmalstekst">
+                {{ this.sporsmalstekst }}
+            </h3>
+        {{/if}}
+        <div class="oppsummering__tekstsvar">
+            {{#each svar}}
+                <p class="oppsummering__tekst">
+                    {{ formatComma verdi }} timer totalt
+                </p>
+            {{/each}}
+        </div>
+    </div>
+{{/eq}}
+
+{{#eq svartype "PROSENT"}}
+    <div class="oppsummering__sporsmalscontainer">
+        {{#if this.sporsmalstekst}}
+            <h3 class="sporsmalstekst">
+                {{ this.sporsmalstekst }}
+            </h3>
+        {{/if}}
+        <div class="oppsummering__tekstsvar">
+            {{#each svar}}
+                <p class="oppsummering__tekst">
+                    {{ verdi }} prosent
+                </p>
+            {{/each}}
+        </div>
+    </div>
+{{/eq}}
+
+{{#eq svartype "TALL"}}
+    <div class="oppsummering__sporsmalscontainer">
+        {{#if this.sporsmalstekst}}
+            <h3 class="sporsmalstekst">
+                {{ this.sporsmalstekst }}
+            </h3>
+        {{/if}}
+        <div class="oppsummering__tekstsvar">
+            {{#each svar}}
+                <p class="oppsummering__tekst">
+                    {{ verdi }} {{ undertekst }}
+                </p>
+            {{/each}}
+        </div>
+    </div>
+{{/eq}}
+
+{{#eq svartype "INFO_BEHANDLINGSDAGER"}}
+    <div>
+        {{#if this.sporsmalstekst}}
+            <p class="oppsummering__tekst">
+                {{ this.sporsmalstekst }}
+            </p>
+        {{/if}}
+    </div>
+    {{# if this.undersporsmal }}
+        <div class="oppsummering__undersporsmalsliste">
+            {{# each this.undersporsmal as |underspm index| ~}}
+                {{> syfosoknader/partials/spmpartial underspm}}
+            {{/each}}
+        </div>
+    {{/if}}
+{{/eq}}
+
+{{#eq svartype "IKKE_RELEVANT"}}
+    <div>
+        {{#if this.sporsmalstekst}}
+            <p class="oppsummering__tekst">
+                {{ this.sporsmalstekst }}
+            </p>
+        {{/if}}
+        {{#if this.undertekst }}
+            <div class="redaksjonelt-innhold">
+                {{safe this.undertekst}}
+            </div>
+        {{/if}}
+    </div>
+    {{# if this.undersporsmal }}
+        <div class="oppsummering__undersporsmalsliste">
+            {{# each this.undersporsmal as |underspm index| ~}}
+                {{> syfosoknader/partials/spmpartial underspm}}
+            {{/each}}
+        </div>
+    {{/if}}
+{{/eq}}
+
+{{#eq svartype "CHECKBOX_PANEL"}}
+    {{#each svar as |s index|~}}
+        {{#eq verdi "CHECKED"}}
+            <div class="oppsummering__sporsmalscontainer">
+                <div class="oppsummering__avkrysset">
+                    <img class="checkbox" src="{{ image "Checkboks.png" }}"/>
+                    <span class="svar svar--checkbox">{{ sporsmalstekst }}</span>
+                </div>
+                {{# if undersporsmal }}
+                    <div class="oppsummering__undersporsmalsliste">
+                        {{# each undersporsmal as |underspm index| ~}}
+                            {{> syfosoknader/partials/spmpartial underspm}}
+                        {{/each}}
+                    </div>
+                {{/if}}
+            </div>
+        {{/eq}}
+    {{/each}}
+{{/eq}}
+
+{{#eq svartype "DATOER"}}
+    {{#if this.sporsmalstekst}}
+        <h3 class="sporsmalstekst">
+            {{ this.sporsmalstekst }}
+        </h3>
+    {{/if}}
+    {{#if this.undertekst}}
+        <p class="undertekst">
+            {{ this.undertekst }}
+        </p>
+    {{/if }}
+    {{# each svar }}
+        <p class="svar svar--dato">
+            {{ iso_to_long_date verdi }}
+        </p>
+    {{/each}}
+{{/eq}}
+
+
+{{#eq svartype "KILOMETER"}}
+    <div class="oppsummering__sporsmalscontainer">
+        {{#if this.sporsmalstekst}}
+            <h3 class="sporsmalstekst">
+                {{ this.sporsmalstekst }}
+            </h3>
+        {{/if}}
+        <div class="oppsummering__tekstsvar">
+            {{#each svar}}
+                <p class="oppsummering__tekst">
+                    {{ formatComma verdi }} km
+                </p>
+            {{/each}}
+        </div>
+    </div>
+{{/eq}}
+
+{{#eq svartype "BELOP"}}
+    <div class="oppsummering__sporsmalscontainer">
+        {{#if this.sporsmalstekst}}
+            <h3 class="sporsmalstekst">
+                {{ this.sporsmalstekst }}
+            </h3>
+        {{/if}}
+        <div class="oppsummering__tekstsvar">
+            {{#each svar}}
+                <p class="oppsummering__tekst">
+                    {{ string_as_currency_no verdi }} kr
+                </p>
+            {{/each}}
+        </div>
+    </div>
+{{/eq}}

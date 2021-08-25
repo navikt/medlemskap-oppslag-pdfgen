@@ -1,0 +1,40 @@
+<div class="header--small ny--side">
+    <h2>Kvitteringer for reise</h2>
+</div>
+
+<table id="kvittering__oppsummering">
+    <thead>
+    <th></th>
+    <th>Transport</th>
+    <th></th>
+    <th>Beløp</th>
+    </thead>
+    <tbody>
+    {{# each kvitteringer as |kvittering|~}}
+        <tr>
+            <td>{{ inc @index }}</td>
+            <td colspan="2"><a href="#kvittering_{{ inc @index }}" >{{kvittering.typeUtgift}}</a></td>
+            <td><a href="#kvittering_{{ inc @index }}">{{int_as_currency_no kvittering.belop}} kr</a></td>
+        </tr>
+    {{/each}}
+    <tr>
+        <td class="no_border" colspan="3"><h3>{{ kvitteringer.length }} utlegg på til sammen</h3></td>
+        <td class="no_border"><h3>{{ int_as_currency_no kvitteringSum }} kr</h3></td>
+    </tr>
+    </tbody>
+</table>
+
+{{# each kvitteringer as |kvittering|~}}
+    <div class="ny--side" id="kvittering_{{ inc @index }}">
+        <div class="header--small">
+            <h2>Kvittering {{inc @index}}</h2>
+        </div>
+        <div class="kvittering__metadata">
+            <p><span class="semibold">Beløp</span><br/>{{int_as_currency_no kvittering.belop}} kr</p>
+            <p><span class="semibold">Transport</span><br/>{{kvittering.typeUtgift}}</p>
+        </div>
+        <div class="kvittering__bilde">
+            <img src="data:image/jpeg;base64,{{kvittering.b64data}}"/>
+        </div>
+    </div>
+{{/each}}
