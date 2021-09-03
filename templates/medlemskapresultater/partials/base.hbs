@@ -32,8 +32,8 @@
         offentleglova § 13 første ledd<br />
 
         og NAV-loven § 7 </p>
-    <p>Resultatet av den automatiske vurderingen av medlemskapet er at {{ navn }} er medlem i folketrygden pr {{ fom }}. </p>
-    <p><dl>Den automatiske vurderingen er basert på opplysninger om {{ navn }} fra:</dl>
+    <p><b>Resultatet av den automatiske vurderingen av medlemskapet er at {{ navn }} er medlem i folketrygden pr {{ fom }}. </b></p>
+    <dl>Den automatiske vurderingen er basert på opplysninger om {{ navn }} fra:</dl>
 
     <dt><b>-</b> NAVs medlemskapsregister MEDL</dt>
 
@@ -42,19 +42,20 @@
     <dt><b>-</b> Arbeidstaker- og arbeidsgiverregisteret</dt>
 
     <dt><b>-</b> Enhetsregisteret</dt>
-
-    <dt><b>-</b> Utlendingsdirektoratet [bare hvis bruker er «Andre statsborgere»]</dt>
-
-    <dt><b>-</b> Søknaden om sykepenger, spørsmål om arbeid utenfor Norge</dt></p>
-    <p><dl>Vurderingen forutsetter at {{ navn }} ikke:</dl>
+    {{#eq erTredjelandsborger "True"}}
+    <dt><b>-</b> Utlendingsdirektoratet </dt>
+    {{/eq}}
+    <dt><b>-</b> Søknaden om sykepenger, spørsmål om arbeid utenfor Norge</dt>
+    <dl>Vurderingen forutsetter at {{ navn }} ikke:</dl>
 
     <dt><b>-</b> har utført noe arbeid utenfor Norge de siste 12 månedene</dt>
 
     <dt><b>-</b> er tjenestemann og ansatt i en forvaltning i et annet EØS-land, og for denne forvaltningen utfører arbeid i Norge</dt>
 
     <dt><b>-</b> mottar kontantytelser fra et annet EØS-land som faller inn under trygdeforordning (EF) 883/2004 artikkel 11 nr. 2</dt>
-
-    <dt><b>-</b> er ansatt for en fremmed stat eller en mellomfolkelig organisasjon [bare hvis bruker ikke er «norsk statsborger»] </dt></p>
+    {{#eq erNorskStatsborger "False"}}
+    <dt><b>-</b> er ansatt for en fremmed stat eller en mellomfolkelig organisasjon </dt>
+    {{/eq}}
 </div>
 
 <div id="footer">
