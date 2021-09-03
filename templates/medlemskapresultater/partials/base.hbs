@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{{> doctitle}}</title>
+    {{#block 'medlemskapresultater/partials/style' }}
+    {{/block}}
+</head>
+<body>
+<div id="header">
+    <img class="navlogo" src="{{ image "Navlogo.png" }}"/>
+    <h1 class="title">{{> title}}</h1>
+</div>
+<div class="container">
+    <div class="personinfo">
+        <div class="persontekst">
+            <div class="persontekst__sidetopp">
+                <img class="personikon" src="{{ image "Personikon.png" }}"/>
+                <div class="persontekst__personalia">
+                    <p class="navn">
+                        {{ navn }}
+                    </p>
+                    <p class="id">
+                        {{ insert_at fnr 6 }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="p3">Unntatt offentlighet etter<br />
+
+        offentleglova § 13 første ledd<br />
+
+        og NAV-loven § 7 </p>
+    <p>Resultatet av den automatiske vurderingen av medlemskapet er at {{ navn }} er medlem i folketrygden pr {{ fom }}. </p>
+    <p><dl>Den automatiske vurderingen er basert på opplysninger om {{ navn }} fra:</dl>
+
+    <dt><b>-</b> NAVs medlemskapsregister MEDL</dt>
+
+    <dt><b>-</b> Folkeregisteret</dt>
+
+    <dt><b>-</b> Arbeidstaker- og arbeidsgiverregisteret</dt>
+
+    <dt><b>-</b> Enhetsregisteret</dt>
+
+    <dt><b>-</b> Utlendingsdirektoratet [bare hvis bruker er «Andre statsborgere»]</dt>
+
+    <dt><b>-</b> Søknaden om sykepenger, spørsmål om arbeid utenfor Norge</dt></p>
+    <p><dl>Vurderingen forutsetter at {{ navn }} ikke:</dl>
+
+    <dt><b>-</b> har utført noe arbeid utenfor Norge de siste 12 månedene</dt>
+
+    <dt><b>-</b> er tjenestemann og ansatt i en forvaltning i et annet EØS-land, og for denne forvaltningen utfører arbeid i Norge</dt>
+
+    <dt><b>-</b> mottar kontantytelser fra et annet EØS-land som faller inn under trygdeforordning (EF) 883/2004 artikkel 11 nr. 2</dt>
+
+    <dt><b>-</b> er ansatt for en fremmed stat eller en mellomfolkelig organisasjon [bare hvis bruker ikke er «norsk statsborger»] </dt></p>
+</div>
+
+<div id="footer">
+    <span class="tidspunkt">Opplysningene er hentet registrene {{ tidspunkt }}.</span>
+    <span class="sidetall">side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
+</div>
+</body>
+</html>
