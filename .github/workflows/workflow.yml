@@ -35,7 +35,7 @@ jobs:
           docker push ${IMAGE}
 
   deploy-to-dev-gcp:
-    if: github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/dev-')
+    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/dev-')
     name: Deploy til dev-gcp (Q1)
     runs-on: ubuntu-latest
     needs: build-and-publish
@@ -58,7 +58,7 @@ jobs:
           VARS: nais/dev-gcp.json
 
   deploy-to-prod-gcp:
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     name: Deploy til prod-gcp (Produksjon)
     runs-on: ubuntu-latest
     needs: build-and-publish
@@ -81,7 +81,7 @@ jobs:
           VARS: nais/prod-gcp.json
 
   tag-image-as-latest:
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     name: Tag dockerimage as latest
     runs-on: ubuntu-latest
     needs: build-and-publish
