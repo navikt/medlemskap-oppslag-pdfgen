@@ -2,5 +2,5 @@
   "app": "medlemskap-oppslag-pdfgen",
   "namespace": "medlemskap",
   "team": "medlemskap",
-  "ingress": "https://flex-sykepengesoknad-pdfgen.intern.nav.no"
+  "ingress": "https://medlemskap-oppslag-pdfgen.intern.nav.no"
 }
