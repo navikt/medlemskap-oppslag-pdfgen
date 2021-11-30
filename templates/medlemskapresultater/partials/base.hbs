@@ -8,31 +8,33 @@
 </head>
 <body>
 <div id="header">
-    <img class="navlogo" src="{{ image "Navlogo.png" }}"/>
+<img class="navlogo" src="{{ image "Navlogo.png" }}"/>
+<p class="p3">Unntatt offentlighet etter<br />
+
+            offentleglova § 13 første ledd<br />
+
+            og NAV-loven § 7 </p>
+
     <h1 class="title">{{> title}}</h1>
 </div>
 <div class="container">
     <div class="personinfo">
         <div class="persontekst">
             <div class="persontekst__sidetopp">
-                <img class="personikon" src="{{ image "Personikon.png" }}"/>
                 <div class="persontekst__personalia">
+                <b>Personopplysniger</b>
                     <p class="navn">
                         {{ navn }}
                     </p>
                     <p class="id">
-                        {{ insert_at fnr 6 }}
+                        Fødselsnummer/Dnr : {{ insert_at fnr 6 }}
                     </p>
                 </div>
             </div>
         </div>
     </div>
-    <p class="p3">Unntatt offentlighet etter<br />
-
-        offentleglova § 13 første ledd<br />
-
-        og NAV-loven § 7 </p>
-    <p><b>Resultatet av den automatiske vurderingen av medlemskapet er at du er medlem i folketrygden pr {{ fom }}. </b></p>
+    <p><b>Du er medlem i folketrygden per {{ fom }}.Vurderingen av medlemskapet ditt er behandlet automatisk.
+</b></p>
     <dl>Den automatiske vurderingen er basert på opplysninger om deg fra:</dl>
 
     <dt><b>-</b> NAVs medlemskapsregister MEDL</dt>
