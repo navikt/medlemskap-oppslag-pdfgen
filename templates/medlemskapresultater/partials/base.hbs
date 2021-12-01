@@ -15,26 +15,30 @@
 
             og NAV-loven § 7 </p>
 
-    <h1 class="title">{{> title}}</h1>
+    <h1 class="heading">
+    <div>{{> title }}</div>
+    <div>Gjelder søknad om sykepenger {{ fom }} - {{ tom }}</div>
+    </h1>
 </div>
 <div class="container">
     <div class="personinfo">
         <div class="persontekst">
             <div class="persontekst__sidetopp">
                 <div class="persontekst__personalia">
-                <b>Personopplysniger</b>
+                <b class="personalia_heading">Personopplysniger</b>
                     <p class="navn">
                         {{ navn }}
                     </p>
                     <p class="id">
-                        Fødselsnummer/Dnr : {{ insert_at fnr 6 }}
+                        Fødselsnummer : {{ insert_at fnr 6 }}
                     </p>
                 </div>
             </div>
         </div>
     </div>
-    <p><b>Du er medlem i folketrygden per {{ fom }}.Vurderingen av medlemskapet ditt er behandlet automatisk.
-</b></p>
+    <p><h3>Du er medlem i folketrygden per {{ fom }}.</h3></p>
+    <p><b>Vurderingen av medlemskapet ditt er behandlet automatisk.</b></p>
+    <div id="oppsummering" class="oppsummering">
     <dl>Den automatiske vurderingen er basert på opplysninger om deg fra:</dl>
 
     <dt><b>-</b> NAVs medlemskapsregister MEDL</dt>
@@ -58,6 +62,7 @@
     {{#eq erNorskStatsborger "False"}}
     <dt><b>-</b> er ansatt for en fremmed stat eller en mellomfolkelig organisasjon </dt>
     {{/eq}}
+    </div>
 </div>
 
 <div id="footer">
