@@ -7,32 +7,39 @@
     {{/block}}
 </head>
 <body>
-<div id="header">
-    <img class="navlogo" src="{{ image "Navlogo.png" }}"/>
-    <h1 class="title">{{> title}}</h1>
+<div class="container">
+<div id="header"><img class="navlogo" src="{{ image "Navlogo.png" }}"/></div>
+<p class="p3">Unntatt offentlighet etter<br />
+
+            offentleglova § 13 første ledd<br />
+
+            og NAV-loven § 7 </p>
+<div class="header">
+    <h1 class="heading">
+    <div>{{> title }}</div>
+    <div>Gjelder søknad om sykepenger {{ fom }} - {{ tom }}</div>
+    </h1>
+</div>
 </div>
 <div class="container">
     <div class="personinfo">
         <div class="persontekst">
             <div class="persontekst__sidetopp">
-                <img class="personikon" src="{{ image "Personikon.png" }}"/>
                 <div class="persontekst__personalia">
+                <b class="personalia_heading">Personopplysniger</b>
                     <p class="navn">
                         {{ navn }}
                     </p>
                     <p class="id">
-                        {{ insert_at fnr 6 }}
+                        Fødselsnummer : {{ insert_at fnr 6 }}
                     </p>
                 </div>
             </div>
         </div>
     </div>
-    <p class="p3">Unntatt offentlighet etter<br />
-
-        offentleglova § 13 første ledd<br />
-
-        og NAV-loven § 7 </p>
-    <p><b>Resultatet av den automatiske vurderingen av medlemskapet er at du er medlem i folketrygden pr {{ fom }}. </b></p>
+    <p><h3>Du er medlem i folketrygden per {{ fom }}.</h3></p>
+    <p><b>Vurderingen av medlemskapet ditt er behandlet automatisk.</b></p>
+    <div id="oppsummering" class="oppsummering">
     <dl>Den automatiske vurderingen er basert på opplysninger om deg fra:</dl>
 
     <dt><b>-</b> NAVs medlemskapsregister MEDL</dt>
@@ -56,6 +63,7 @@
     {{#eq erNorskStatsborger "False"}}
     <dt><b>-</b> er ansatt for en fremmed stat eller en mellomfolkelig organisasjon </dt>
     {{/eq}}
+    </div>
 </div>
 
 <div id="footer">
