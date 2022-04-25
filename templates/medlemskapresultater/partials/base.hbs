@@ -26,7 +26,7 @@
         <div class="persontekst">
             <div class="persontekst__sidetopp">
                 <div class="persontekst__personalia">
-                <b class="personalia_heading">Personopplysniger</b>
+                <b class="personalia_heading">Personopplysninger</b>
                     <p class="navn">
                         {{ navn }}
                     </p>
@@ -53,21 +53,23 @@
     <dt><b>-</b> Utlendingsdirektoratet </dt>
     {{/eq}}
     <dt><b>-</b> Søknaden om sykepenger, spørsmål om arbeid utenfor Norge</dt>
-    <dl>Vurderingen forutsetter at du ikke:</dl>
+    <dl>Vurderingen forutsetter:</dl>
+    
+    <dt><b>-</b>at du ikke har utført noe arbeid utenfor Norge de siste 12 månedene</dt>
+    
+    <dt><b>-</b>at du ikke oppholder deg utenfor EØS-området uten NAV sin godkjenning av utenlandsoppholdet, se folketrygdloven paragraf 8-9 andre ledd</dt>
 
-    <dt><b>-</b> har utført noe arbeid utenfor Norge de siste 12 månedene</dt>
+    <dt><b>-</b> at du ikke er tjenestemann og ansatt i en forvaltning i et annet EØS-land.</dt>
 
-    <dt><b>-</b> er tjenestemann og ansatt i en forvaltning i et annet EØS-land.</dt>
-
-    <dt><b>-</b> mottar kontantytelser fra et annet EØS-land som faller inn under trygdeforordning (EF) 883/2004 artikkel 11 nr. 2</dt>
+    <dt><b>-</b> at du ikke mottar kontantytelser fra et annet EØS-land som faller inn under trygdeforordning (EF) 883/2004 artikkel 11 nr. 2</dt>
     {{#eq erNorskStatsborger "False"}}
-    <dt><b>-</b> er ansatt for en fremmed stat eller en mellomfolkelig organisasjon </dt>
+    <dt><b>-</b> at du ikke er ansatt for en fremmed stat eller en mellomfolkelig organisasjon </dt>
     {{/eq}}
     </div>
 </div>
 
 <div id="footer">
-    <span class="tidspunkt">Opplysningene er hentet registrene {{ tidspunkt }}.</span>
+    <span class="tidspunkt">Opplysningene er hentet fra registrene {{ tidspunkt }}.</span>
     <span class="sidetall">side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
 </div>
 </body>
