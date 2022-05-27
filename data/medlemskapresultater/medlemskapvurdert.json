@@ -4,6 +4,6 @@
   "fnr": "12345678901",
   "fom": "01.08.2021",
   "tom": "22.08.2021",
-  "erNorskStatsborger": "true",
-  "erTredjelandsborger": "false"
+  "erNorskStatsborger": "True",
+  "erTredjelandsborger": "False"
 }
