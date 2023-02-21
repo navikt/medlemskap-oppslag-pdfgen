@@ -1,0 +1,19 @@
+{
+  "tidspunkt": "13:23:07 30.08.2021",
+  "opprettet" : "30.08.2021",
+  "fnr": "12345678901",
+  "fom": "01.08.2018",
+  "tom": "22.08.2021",
+  "erTredjelandsborger": "true",
+  "årsaker" : [ {
+    "regelId" : "REGEL_18",
+    "avklaring" : "Er bruker i hovedsak arbeidstaker?",
+    "svar" : "NEI",
+    "begrunnelse" : "Bruker er ikke arbeidstaker"
+  }, {
+    "regelId" : "REGEL_19_1",
+    "avklaring" : "Er oppholdstillatelsen uavklart?",
+    "svar" : "JA",
+    "begrunnelse" : "UDI-tjenesten returnerte uavklart oppholdstillatelse, og må derfor behandles manuelt av UDI"
+  } ]
+}
