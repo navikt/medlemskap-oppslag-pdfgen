@@ -17,8 +17,10 @@
 <div class="header">
     <h1 class="heading">
     <div>{{> title }}</div>
-    <div>Gjelder søknad om Dagpenger {{ opprettet }}</div>
     </h1>
+    <br/>
+    Notatet er opprettet automatisk av systemet LovMe relatert til søknad om {{ ytelse }}
+
 </div>
 </div>
 <div class="container">
@@ -33,16 +35,19 @@
                     <p class="id">
                         Fødselsnummer : {{ insert_at fnr 6 }}
                     </p>
+                    <p>Bruker er statsborger i {{statsborger}}</p>
                 </div>
             </div>
         </div>
     </div>
-    <p><h3>Det er uklart om du er medlem i folketrygden i perioden {{ fom }} - {{ tom }}.</h3></p>
-    <p><h3>Årsaker :</h3></p>
+    <p><h3>Til saksbehandler .</h3></p>
+    <p>Brukers lovvalg og/eller medlemskap lot seg ikke avklare automatisk. </p><br/>
+    <p>For å avklare lovvalg og/eller medlemskap, må du i tillegg til det som står nedenfor, også se hva bruker har svart i søknaden om opphold/bosted og arbeid i utlandet.  </p><br/>
     {{#each årsaker}}
-    <ul>
-        <li><span> {{ begrunnelse }}  </span></li>
-      </ul>
+        <br/>
+    <b>{{ begrunnelse }}</b>
+        <br/>{{{ beskrivelse }}}<br/>
+
     {{/each}}
 
     <p><b>Vurderingen av medlemskapet ditt er behandlet automatisk.</b></p>
@@ -60,18 +65,6 @@
     <dt><b>-</b> Utlendingsdirektoratet </dt>
     {{/eq}}
     <dt><b>-</b> Søknaden om dagpenger, spørsmål om arbeid utenfor Norge</dt>
-    <dl>Vurderingen forutsetter:</dl>
-    
-    <dt><b>-</b> at du ikke har utført noe arbeid utenfor Norge de siste 12 månedene</dt>
-    
-    <dt><b>-</b> at du ikke oppholder deg utenfor EØS-området uten NAV sin godkjenning av utenlandsoppholdet, se folketrygdloven § 8-9 andre ledd</dt>
-
-    <dt><b>-</b> at du ikke er tjenestemann og ansatt i en forvaltning i et annet EØS-land.</dt>
-
-    <dt><b>-</b> at du ikke mottar kontantytelser fra et annet EØS-land som faller inn under trygdeforordning (EF) 883/2004 artikkel 11 nr. 2</dt>
-    {{#eq erNorskStatsborger "false"}}
-    <dt><b>-</b> at du ikke er ansatt for en fremmed stat eller en mellomfolkelig organisasjon </dt>
-    {{/eq}}
     </div>
 </div>
 
