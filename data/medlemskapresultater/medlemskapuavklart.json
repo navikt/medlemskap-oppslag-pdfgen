@@ -4,7 +4,8 @@
   "fnr": "12345678901",
   "fom": "01.08.2018",
   "tom": "22.08.2021",
-  "statsborger": "USA,FIN",
+  "navn": "Lur Luresen",
+  "statsborger": "USA OG FIN",
   "ytelse": "dagpenger",
   "erTredjelandsborger": "true",
   "årsaker" : [  {
