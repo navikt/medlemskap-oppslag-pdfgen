@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{{> doctitle}}</title>
+    {{#block 'medlemskapresultater/partials/style' }}
+    {{/block}}
+</head>
+<body>
+<div class="container">
+<div id="header"><img class="navlogo" src="{{ image "Navlogo.png" }}"/></div>
+<p class="p3">Unntatt offentlighet etter<br />
+
+            offentleglova § 13 første ledd<br />
+
+            og NAV-loven § 7 </p>
+<div class="header">
+    <h1 class="heading">
+    <div>{{> title }}</div>
+    <div>Gjelder søknad om Dagpenger {{ fom }} - {{ tom }}</div>
+    </h1>
+</div>
+</div>
+<div class="container">
+    <div class="personinfo">
+        <div class="persontekst">
+            <div class="persontekst__sidetopp">
+                <div class="persontekst__personalia">
+                <b class="personalia_heading">Personopplysninger</b>
+                    <p class="navn">
+                        {{ navn }}
+                    </p>
+                    <p class="id">
+                        Fødselsnummer : {{ insert_at fnr 6 }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p><b>Vurderingen av medlemskapet ditt er behandlet automatisk.</b></p>
+    <div id="oppsummering" class="oppsummering">
+    <p><h3>Det er uklart om du er medlem i folketrygden pr. {{ fom }}.</h3></p>
+
+    <dl>Den automatiske vurderingen er basert på opplysninger om deg fra:</dl>
+
+    <dt><b>-</b> NAVs medlemskapsregister MEDL</dt>
+
+    <dt><b>-</b> Folkeregisteret</dt>
+
+    <dt><b>-</b> Arbeidstaker- og arbeidsgiverregisteret</dt>
+
+    <dt><b>-</b> Enhetsregisteret</dt>
+    {{#eq erTredjelandsborger "true"}}
+    <dt><b>-</b> Utlendingsdirektoratet </dt>
+    {{/eq}}
+    <dt><b>-</b> Søknaden om sykepenger, spørsmål om arbeid utenfor Norge</dt>
+    <dl>Vurderingen forutsetter:</dl>
+    
+    <dt><b>-</b> at du ikke har utført noe arbeid utenfor Norge de siste 12 månedene</dt>
+    
+    <dt><b>-</b> at du ikke oppholder deg utenfor EØS-området uten NAV sin godkjenning av utenlandsoppholdet, se folketrygdloven § 8-9 andre ledd</dt>
+
+    <dt><b>-</b> at du ikke er tjenestemann og ansatt i en forvaltning i et annet EØS-land.</dt>
+
+    <dt><b>-</b> at du ikke mottar kontantytelser fra et annet EØS-land som faller inn under trygdeforordning (EF) 883/2004 artikkel 11 nr. 2</dt>
+    {{#eq erNorskStatsborger "false"}}
+    <dt><b>-</b> at du ikke er ansatt for en fremmed stat eller en mellomfolkelig organisasjon </dt>
+    {{/eq}}
+    </div>
+</div>
+
+<div id="footer">
+    <span class="tidspunkt">Opplysningene er hentet fra registrene {{ tidspunkt }}.</span>
+    <span class="sidetall">side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
+</div>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<style>
+    @page {
+        size: A4 portrait;
+        margin: 1cm 0.3cm 0.5cm;
+        padding-bottom: 1cm;
+
+        @bottom-left {
+            content: element(footer);
+        }
+    }
+
+    @page: first {
+        margin-top: 0;
+
+        @top-left {
+            content: element(header);
+        }
+    }
+
+    * {
+        font-family: "Source Sans Pro";
+    }
+
+    h1 {
+        font-weight: 700;
+        font-style: normal;
+        font-size: 16px;
+        font-family: "Source Sans Pro";
+    }
+
+    p {
+        margin-top: 3px;
+        margin-bottom: 3px;
+        font-size: 14px;
+        font-family: "Source Sans Pro";
+    }
+
+    p.korrigert {
+        color: #ba3a26;
+        font-weight: bold;
+    }
+
+    p.header__tittel {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    .p3 {
+        font-style: italic;
+        margin-top: -25px;
+        margin-bottom: 40px;
+        text-align: right;
+    }
+
+    .heading {
+        font-weight: 700;
+        font-style: bold;
+        font-size: 16px;
+        font-family: "Source Sans Pro";
+
+
+    }
+    .spacious {
+           padding-top: 15px;
+           padding-bottom: 15px;
+
+
+        }
+    .oppsummering {
+            font-style: normal;
+            font-size: 12px;
+            font-family: "Source Sans Pro";
+
+        }
+    .personalia_heading{
+        font-weight: 700;
+        font-style: bold;
+        font-size: 14px;
+        font-family: "Source Sans Pro";
+    }
+
+    #footer {
+        position: running(footer);
+        font-size: 12px;
+        margin-top: -25px;
+        padding-left: 0.6cm;
+    }
+
+    .sidetall {
+        float: right;
+    }
+
+    #pagenumber:before {
+        content: counter(page);
+    }
+
+    #pagecount:before {
+        content: counter(pages)
+    }
+
+
+    .ny--side {
+        page-break-before: always;
+    }
+
+    #header {
+        background: #FFFFFF;
+        padding: 0.3cm 0.7cm;
+    }
+
+    h3 {
+        font-weight: 700;
+        font-style: normal;
+        font-size: 14px;
+        font-family: "Source Sans Pro";
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .title {
+        display: inline-block;
+        top: 14px;
+        left: 100px;
+        font-family: "Source Sans Pro";
+        font-size: 16px;
+    }
+
+    .navlogo {
+        position : absolute
+        display: inline-block;
+        padding-top: 15px;
+        padding-bottom: 0px;
+        margin-left: 3px;
+        width: 48px;
+    }
+
+    .container {
+        margin: 0cm 0.7cm;
+    }
+
+    .personinfo {
+        position: relative;
+        top: 25px;
+    }
+
+    .navn {
+        font-weight: bold;
+        font-size: 16px;
+        width: 350px;
+    }
+
+    .id {
+        width: 430px;
+        margin-bottom: 30px;
+    }
+
+    .personikon {
+        display: inline-block;
+        width: 32px;
+        margin-right: 8px;
+        margin-left: 3px;
+    }
+
+    .persontekst {
+        display: inline-block;
+        width: 667px;
+    }
+
+    .sendt {
+        display: inline-block;
+        float: right;
+        width: 145px;
+        font-size: 14px;
+    }
+
+    .persontekst__personalia {
+        display: inline-block;
+    }
+
+    .persontekst__sidetopp {
+        display: block;
+        margin-bottom: 32px;
+    }
+
+    .header--small {
+        background: #C2EAF7;
+        padding: 1px 0.9cm;
+    }
+
+    .header--small h2 {
+        padding: 0;
+        font-size: 18px;
+    }
+
+    #kvittering__oppsummering {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    #kvittering__oppsummering th {
+        font-weight: 600;
+        border-bottom: 1px solid #6f6f6f;
+        padding: 16px;
+    }
+
+    #kvittering__oppsummering td {
+        padding: 16px;
+        border-bottom: 1px solid #d9d9d9;
+    }
+
+    #kvittering__oppsummering td h3 {
+        font-weight: 700;
+        font-style: normal;
+        font-size: 18px;
+        font-family: "Source Sans Pro";
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    #kvittering__oppsummering tbody tr:nth-child(odd) td {
+        background-color: #f7f7f7;
+    }
+
+    .semibold {
+        font-weight: 600;
+    }
+
+
+    .kvittering__metadata {
+        padding-left: 0.7cm;
+        width: 18.6cm;
+        box-sizing: border-box;
+        clear: both;
+    }
+
+    .kvittering__metadata p {
+        /*
+            old school kolonnesystem siden vi ikke kan bruke flex/grid/noe mer fornuftig her.
+            ikke at det gjør så himla mye, siden et A4-ark stort sett kun har én størrelse
+        */
+        float: left;
+        margin-left: 0.5cm;
+        width: 8cm;
+    }
+
+    .kvittering__bilde {
+        padding-top: 0.2cm;
+        clear: both;
+        text-align: center;
+    }
+
+    .kvittering__bilde img {
+        background-color: #3E3832;
+        padding: 0.3cm;
+        /* kanskje sleng på mer padding på sidene */
+        max-width: 17.3cm;
+        max-height: 23.3cm;
+    }
+
+    .no_border {
+        border: 0px transparent !important;
+    }
+
+    .sporsmalcontainer {
+        position: relative;
+        top: 50px;
+    }
+
+    .svarcontainer {
+        position: relative;
+        left: 2px;
+    }
+
+    .svar {
+        margin-top: 4px;
+        width: 90%;
+        font-size: 14px;
+        font-family: "Source Sans Pro";
+    }
+
+    .svar--perioder {
+        font-size: 18px;
+        font-weight: bold;
+        margin-left: 3px;
+
+    }
+
+    .svar--checkbox {
+        display: inline-block;
+    }
+
+    .checkbox {
+        vertical-align: top;
+        width: 13px;
+        margin: -3px 5px 0px 1px;
+    }
+
+    .hovedsporsmal {
+        page-break-inside: avoid;
+        margin-bottom: 1em;
+    }
+
+    .oppsummering__seksjon {
+        page-break-inside: avoid;
+    }
+
+    .sporsmal .sporsmal {
+        margin-left: 10px
+    }
+
+    .sporsmalstekst {
+        font-weight: bold;
+    }
+
+    .redaksjonelt-innhold ul {
+        font-family: "Source Sans Pro";
+        font-size: 14px;
+    }
+
+    .redaksjonelt-innhold ul li {
+        margin-bottom: 12px;
+    }
+
+    .oppsummering__seksjon {
+        border-bottom: 1px solid gray;
+        margin-bottom: 1em;
+        padding-bottom: 1em;
+    }
+
+    .oppsummering__seksjon:last-child {
+        border-bottom-width: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .oppsummering__sporsmalscontainer {
+        margin-bottom: 0.75em;
+    }
+
+    .oppsummering__sporsmalscontainer:last-child {
+        margin-bottom: 0;
+    }
+
+    .oppsummering__sporsmal {
+        margin-top: 0;
+        margin-bottom: .5em;
+    }
+
+    .oppsummering__avkrysset {}
+
+    .oppsummering__avkrysset img {
+        width: 1em;
+        height: 1em;
+        margin-right: .25em;
+        margin-top: .175em;
+    }
+
+    .oppsummering__avkrysset span {
+        flex: 1;
+    }
+
+    .oppsummering__undersporsmal .oppsummering__undersporsmal {
+        padding-left: 1.0em;
+        margin-bottom: 1.0em;
+    }
+
+    .oppsummering__undersporsmal+.oppsummering__undersporsmal {
+        margin-top: 1.5em;
+    }
+
+    .oppsummering__tekst,
+    .oppsummering__dato {
+        margin-bottom: .5em;
+    }
+
+    .oppsummering__avkrysset+.oppsummering__tekstsvar,
+    .oppsummering__svarliste+.oppsummering__tekstsvar,
+    .oppsummering__avkrysset+.oppsummering__undersporsmalsliste,
+    .oppsummering__tekstsvar+.oppsummering__tekstsvar {
+        padding-left: 1.0em;
+    }
+
+    .oppsummering__svarliste:last-child .oppsummering__undersporsmalsliste {
+        margin-bottom: 0;
+    }
+
+    .oppsummering__svarliste+.oppsummering__svarliste {
+        margin-top: 1em;
+    }
+
+    .oppsummering__undersporsmalsliste {
+        margin-top: 0.5em;
+    }
+
+    .oppsummering__avkrysset+.oppsummering__undersporsmalsliste {
+        margin-bottom: 0.5em;
+        margin-top: 0.5em;
+    }
+
+    .oppsummering__avkrysset+.oppsummering__undersporsmalsliste>.oppsummering__tekstsvar:first-child {
+        margin-top: -1em;
+    }
+
+    .oppsummering__avkrysset+.oppsummering__undersporsmalsliste>.oppsummering__tekstsvar {
+        padding-left: 0;
+    }
+
+    .oppsummering__tekstsvar+.oppsummering__sporsmalscontainer {
+        margin-top: 1em;
+    }
+
+    .oppsummering__dato {
+        margin-bottom: 0;
+    }
+
+    .oppsummering__dato:before {
+        content: "\2022";
+        display: inline-block;
+        width: .5em;
+        margin-right: .5em;
+    }
+    mark {
+    }
+
+</style>
