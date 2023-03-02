@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{{> doctitle}}</title>
+    {{#block 'medlemskapresultater/partials/style' }}
+    {{/block}}
+</head>
+<body>
+<div class="container">
+<div id="header"><img class="navlogo" src="{{ image "Navlogo.png" }}"/></div>
+<p class="p3">Unntatt offentlighet etter<br />
+
+            offentleglova § 13 første ledd<br />
+
+            og NAV-loven § 7 </p>
+<div class="header">
+    <h1 class="heading">
+    <div>{{> title }}</div>
+    </h1>
+    <br/>
+    Notatet er opprettet automatisk av systemet LovMe relatert til søknad om {{ ytelse }}
+
+</div>
+</div>
+<div class="container">
+    <div class="personinfo">
+        <div class="persontekst">
+            <div class="persontekst__sidetopp">
+                <div class="persontekst__personalia">
+                <b class="personalia_heading">Personopplysninger</b>
+                    <p class="navn">
+                        {{ navn }}
+                    </p>
+                    <p class="id">
+                        Fødselsnummer : {{ insert_at fnr 6 }}
+                    </p>
+                    <p>Bruker er statsborger i {{statsborger}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p><h3>Til saksbehandler .</h3></p>
+    <p>Brukers lovvalg og/eller medlemskap lot seg ikke avklare automatisk. </p><br/>
+    <p>For å avklare lovvalg og/eller medlemskap, må du i tillegg til det som står nedenfor, også se hva bruker har svart i søknaden om opphold/bosted og arbeid i utlandet.  </p><br/>
+    {{#each årsaker}}
+        <br/>
+    <b>{{ begrunnelse }}</b>
+        <br/>{{{ beskrivelse }}}<br/>
+
+    {{/each}}
+
+    <p><b>Vurderingen av medlemskapet ditt er behandlet automatisk.</b></p>
+    <div id="oppsummering" class="oppsummering">
+    <dl>Den automatiske vurderingen er basert på opplysninger om deg fra:</dl>
+
+    <dt><b>-</b> NAVs medlemskapsregister MEDL</dt>
+
+    <dt><b>-</b> Folkeregisteret</dt>
+
+    <dt><b>-</b> Arbeidstaker- og arbeidsgiverregisteret</dt>
+
+    <dt><b>-</b> Enhetsregisteret</dt>
+    {{#eq erTredjelandsborger "true"}}
+    <dt><b>-</b> Utlendingsdirektoratet </dt>
+    {{/eq}}
+    <dt><b>-</b> Søknaden om dagpenger, spørsmål om arbeid utenfor Norge</dt>
+    </div>
+</div>
+
+<div id="footer">
+    <span class="tidspunkt">Opplysningene er hentet fra registrene {{ tidspunkt }}.</span>
+    <span class="sidetall">side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
+</div>
+</body>
+</html>

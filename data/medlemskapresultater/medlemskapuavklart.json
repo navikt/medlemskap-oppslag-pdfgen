@@ -1,0 +1,18 @@
+{
+  "tidspunkt": "13:23:07 30.08.2021",
+  "opprettet" : "30.08.2021",
+  "fnr": "12345678901",
+  "fom": "01.08.2018",
+  "tom": "22.08.2021",
+  "navn": "Lur Luresen",
+  "statsborger": "USA OG FIN",
+  "ytelse": "dagpenger",
+  "erTredjelandsborger": "true",
+  "årsaker" : [  {
+    "regelId" :"REGEL_19_1",
+    "avklaring" : "Er oppholdstillatelsen uavklart?",
+    "svar" : "JA",
+    "begrunnelse" : "UDI-tjenesten kan ikke gi et automatisk svar",
+    "beskrivelse" : "<p>For å avklare om bruker er medlem i folketrygden, må bruker har lovlig opphold i Norge og saksbehandler må kontakte Utlendingsdirektoratet enten ved å bruke kontaktskjemaet på udi.no eller på telefon</p><br/><p>Du vil ikke få svar om du bruker UDI-tjenesten i Gosys</p><br/> <p>For mer informasjon, se Siden på Navet som heter Når skal du bruke kontaktskjemaet på udi.no? Dette finner du under siden Fag og støttesystemer / UDI-tjenesten.</p> "
+  }]
+}
