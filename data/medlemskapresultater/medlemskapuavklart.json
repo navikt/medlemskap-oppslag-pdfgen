@@ -13,6 +13,9 @@
     "avklaring" : "Er oppholdstillatelsen uavklart?",
     "svar" : "JA",
     "begrunnelse" : "UDI-tjenesten kan ikke gi et automatisk svar",
-    "beskrivelse" : "<p>For å avklare om bruker er medlem i folketrygden, må bruker har lovlig opphold i Norge og saksbehandler må kontakte Utlendingsdirektoratet enten ved å bruke kontaktskjemaet på udi.no eller på telefon</p><br/><p>Du vil ikke få svar om du bruker UDI-tjenesten i Gosys</p><br/> <p>For mer informasjon, se Siden på Navet som heter Når skal du bruke kontaktskjemaet på udi.no? Dette finner du under siden Fag og støttesystemer / UDI-tjenesten.</p> "
+    "beskrivelse" : "<p>Det er et vilkår for medlemskap i folketrygden at en person har lovlig opphold i Norge.<p/>
+    <p>Brukers oppholdstillatelse og arbeidsadgang lot seg ikke avklare automatisk av UDI-tjenesten. Svaret fra UDI-tjenesten er uavklart, og du vil ikke får svar om du bruker UDI-tjenesten i Gosys.</p>
+    <p>Du må derfor kontakte UDI enten ved å bruke kontaktskjemaet på udi.no eller på telefon.</p>
+    <p>For mer informasjon, se Siden på Navet som heter <mark>“Når skal du bruke kontaktskjemaet på udi.no?”</mark> Dette finner du under siden Fag og støttesystemer / UDI-tjenesten.</p>"
   }]
 }
