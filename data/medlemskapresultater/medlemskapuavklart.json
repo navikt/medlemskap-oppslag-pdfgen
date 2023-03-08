@@ -5,7 +5,7 @@
   "fom": "01.08.2018",
   "tom": "22.08.2021",
   "navn": "Lur Luresen",
-  "statsborger": "USA OG FIN",
+  "statsborger": "USA og FIN",
   "ytelse": "dagpenger",
   "erTredjelandsborger": "true",
   "årsaker" : [  {
@@ -13,6 +13,6 @@
     "avklaring" : "Er oppholdstillatelsen uavklart?",
     "svar" : "JA",
     "begrunnelse" : "UDI-tjenesten kan ikke gi et automatisk svar",
-    "beskrivelse" : "<p>Det er et <mark>vilkår</mark> for medlemskap i folketrygden at en person har lovlig opphold i Norge.</p><p>Brukers oppholdstillatelse og arbeidsadgang lot seg ikke avklare automatisk av UDI-tjenesten. Svaret fra UDI-tjenesten er uavklart, og du vil ikke får svar om du bruker UDI-tjenesten i Gosys.</p><p>Du må derfor kontakte UDI enten ved å bruke kontaktskjemaet på udi.no eller på telefon.</p><p>For mer informasjon, se Siden på Navet som heter “Når skal du bruke kontaktskjemaet på udi.no?”Dette finner du under siden Fagsystemer og fellesregistre / UDI-tjenesten.</p>"
+    "beskrivelse" : "<p>Det er et vilkår for medlemskap i folketrygden at en person har lovlig opphold i Norge.</p><p>Brukers oppholdstillatelse og arbeidsadgang lot seg ikke avklare automatisk av UDI-tjenesten. Svaret fra UDI-tjenesten er uavklart, og du vil ikke får svar om du bruker UDI-tjenesten i Gosys.</p><p>Du må derfor kontakte UDI enten ved å bruke kontaktskjemaet på udi.no eller på telefon.</p><p>For mer informasjon, se siden på Navet som heter <a href='https://navno.sharepoint.com/sites/fag-og-ytelser-fagsystemer/SitePages/Bruk-UDIs-kontaktskjema-n%C3%A5r-tjenesten-svare--Uavklart-.aspx'>Når skal du bruke kontaktskjemaet på udi.no?</a>. Dette finner du under siden <a href='https://navno.sharepoint.com/sites/fag-og-ytelser-fagsystemer/SitePages/UDI-tjenesten.aspx'>Fagsystemer og fellesregistre / UDI-tjenesten</a>.</p>"
   }]
 }
