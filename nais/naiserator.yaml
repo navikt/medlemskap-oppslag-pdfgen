@@ -8,6 +8,10 @@ metadata:
   labels:
     team: {{team}}
 spec:
+  accessPolicy:
+    inbound:
+      rules:
+        - application: medlemskap-joark-listener
   image: {{ image }}
   port: 8080
   ingresses:
