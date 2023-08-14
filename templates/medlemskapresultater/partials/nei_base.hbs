@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{{> doctitle}}</title>
+    {{#block 'medlemskapresultater/partials/style' }}
+    {{/block}}
+</head>
+<body>
+<div class="container">
+    <div id="header"><img class="navlogo" src="{{ image "Navlogo.png" }}"/></div>
+    <p class="p3">Unntatt offentlighet etter
+        offentleglova § 13 første ledd
+        og NAV-loven § 7 </p>
+    <div class="header">
+        <h1 class="heading">
+            <br/>
+            <br/>
+            <br/>
+            <div>{{> title }}</div>
+        </h1>
+    </div>
+</div>
+<div class="container">
+    <div class="personinfo">
+        <div class="persontekst">
+            <div class="persontekst__sidetopp">
+                <div class="persontekst__personalia">
+                    <b>Personopplysninger</b>
+                    <p>
+                        <br/>
+                        {{ navn }}
+                    </p>
+                    <p class="id">
+                        Fødselsnummer/Dnr : {{ insert_at fnr 6 }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>
+        <br/>
+        <br/>
+        <b>Du er ikke medlem i folketrygden i perioden {{ MEDLfom }} - {{MEDLtom}}.</b>
+    </p>
+    <p>
+        Medlemskapet er automatisk vurdert.
+        <br/>
+        Resultatet av vurderingen er at du er omfattet av trygdelovgivningen i {{lovvalgsland}}
+        og du er derfor ikke medlem i folketrygden i perioden {{MEDLfom}} - {{MEDLtom}}.
+        <br/>
+    </p>
+    <div>
+        Den automatiske vurderingen er basert på opplysninger om deg fra:
+        <ul>
+            <li> Utenlandske trygdemyndigheter</li>
+            <li> Folkeregisteret</li>
+            <li> Arbeidstaker- og arbeidsgiverregisteret</li>
+            <li> Enhetsregisteret</li>
+            {{#eq erTredjelandsborger "true"}}
+                <li>Utlendingsdirektoratet</li>
+            {{/eq}}
+        </ul>
+    </div>
+    Vurderingen forutsetter at du er omfattet av et annet lands trygdelovgivning,
+    og at arbeidsforhold og/eller arbeidsmønster ikke har endret seg etter at du begynte å jobbe i Norge.
+</div>
+
+<div id="footer">
+    <span class="tidspunkt">Opplysningene er hentet fra registrene {{ tidspunkt }}.</span>
+    <span class="sidetall">side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
+</div>
+</body>
+</html>
