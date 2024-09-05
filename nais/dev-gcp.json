@@ -2,5 +2,5 @@
   "app": "medlemskap-oppslag-pdfgen",
   "namespace": "medlemskap",
   "team": "medlemskap",
-  "ingress": "https://medlemskap-oppslag-pdfgen.dev.intern.nav.no"
+  "ingress": "https://medlemskap-oppslag-pdfgen.intern.dev.nav.no"
 }
