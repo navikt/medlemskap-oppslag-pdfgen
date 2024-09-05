@@ -86,6 +86,8 @@ jobs:
     if: github.ref == 'refs/heads/main'
     name: Tag dockerimage as latest
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     needs: build-and-publish
     steps:
       - name: Last ned versjon
