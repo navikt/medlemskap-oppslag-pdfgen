@@ -10,6 +10,8 @@ jobs:
   build-and-publish:
     name: Bygg, test og push Docker image
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v1
