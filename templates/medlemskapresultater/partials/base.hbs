@@ -41,19 +41,20 @@
     <h3>Du er medlem i folketrygden pr. {{ fom }}.</h3></p>
     <p><b>Vurderingen av medlemskapet ditt er behandlet automatisk.</b></p>
     <div id="oppsummering" class="oppsummering">
-        <dl>Den automatiske vurderingen er basert på opplysninger om deg fra:</dl>
+        Den automatiske vurderingen er basert på opplysninger om deg fra:
+        <ul>
+            <li>Utenlandske trygdemyndigheter (NAVs medlemskapsregister MEDL)</li>
 
-        <dt><b>-</b> Utenlandske trygdemyndigheter (NAVs medlemskapsregister MEDL)</dt>
+            <li>Folkeregisteret</li>
 
-        <dt><b>-</b> Folkeregisteret</dt>
+            <li>Arbeidstaker- og arbeidsgiverregisteret</li>
 
-        <dt><b>-</b> Arbeidstaker- og arbeidsgiverregisteret</dt>
-
-        <dt><b>-</b> Enhetsregisteret</dt>
-        {{#eq erTredjelandsborger "true"}}
-            <dt><b>-</b> Utlendingsdirektoratet</dt>
-        {{/eq}}
-        <dt><b>-</b> Søknaden om sykepenger og spørsmål om:
+            <li>Enhetsregisteret</li>
+            {{#eq erTredjelandsborger "true"}}
+                <li>Utlendingsdirektoratet</li>
+            {{/eq}}
+        </ul>
+        <dt> Søknaden om sykepenger og spørsmål om:
             <ul>
                 {{#eq brukerSpørsmålArbeidUtlandNy "false"}} <!-- gammel brukerspørsmål -->
                     <li>Arbeid utenfor Norge</li>{{/eq}}
@@ -67,22 +68,23 @@
                 <li>Oppholdstillatelse</li>{{/eq}}
             </ul>
         </dt>
-        <dl>Vurderingen forutsetter:</dl>
+        Vurderingen forutsetter:
+        <ul>
+            <li>at du ikke har utført noe arbeid utenfor Norge de siste 12 månedene</li>
 
-        <dt><b>-</b> at du ikke har utført noe arbeid utenfor Norge de siste 12 månedene</dt>
+            <li>at du ikke oppholder deg utenfor EØS-området uten NAV sin godkjenning av utenlandsoppholdet, se
+                folketrygdloven § 8-9 andre ledd
+            </li>
 
-        <dt><b>-</b> at du ikke oppholder deg utenfor EØS-området uten NAV sin godkjenning av utenlandsoppholdet, se
-            folketrygdloven § 8-9 andre ledd
-        </dt>
+            <li>at du ikke er tjenestemann og ansatt i en forvaltning i et annet EØS-land.</li>
 
-        <dt><b>-</b> at du ikke er tjenestemann og ansatt i en forvaltning i et annet EØS-land.</dt>
-
-        <dt><b>-</b> at du ikke mottar kontantytelser fra et annet EØS-land som faller inn under trygdeforordning (EF)
-            883/2004 artikkel 11 nr. 2
-        </dt>
-        {{#eq erNorskStatsborger "false"}}
-            <dt><b>-</b> at du ikke er ansatt for en fremmed stat eller en mellomfolkelig organisasjon</dt>
-        {{/eq}}
+            <li> at du ikke mottar kontantytelser fra et annet EØS-land som faller inn under trygdeforordning (EF)
+                883/2004 artikkel 11 nr. 2
+            </li>
+            {{#eq erNorskStatsborger "false"}}
+                <li> at du ikke er ansatt for en fremmed stat eller en mellomfolkelig organisasjon</li>
+            {{/eq}}
+        </ul>
     </div>
 </div>
 
