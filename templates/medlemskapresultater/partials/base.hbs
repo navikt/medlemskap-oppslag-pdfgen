@@ -28,10 +28,10 @@
                 <div class="persontekst__personalia">
                     <b class="personalia_heading">Personopplysninger</b>
                     <p class="navn">
-                        {{ navn }}
+                        Navn: {{ navn }}
                     </p>
                     <p class="id">
-                        Fødselsnummer : {{ insert_at fnr 6 }}
+                        Fødselsnummer: {{ insert_at fnr 6 }}
                     </p>
                 </div>
             </div>
@@ -39,9 +39,9 @@
     </div>
     <p>
     <h3>Du er medlem i folketrygden pr. {{ fom }}.</h3></p>
-    <p><b>Vurderingen av medlemskapet ditt er behandlet automatisk.</b></p>
+    <p class="automatisk-vurdering">
+        Vurderingen av medlemskapet ditt er behandlet automatisk, og vurderingen er basert på opplysninger om deg fra:</p>
     <div id="oppsummering" class="oppsummering">
-        Den automatiske vurderingen er basert på opplysninger om deg fra:
         <ul>
             <li>Utenlandske trygdemyndigheter (NAVs medlemskapsregister MEDL)</li>
 
@@ -54,25 +54,28 @@
                 <li>Utlendingsdirektoratet</li>
             {{/eq}}
         </ul>
-        <dt> Søknaden om sykepenger og spørsmål om:
+        <dt>
             <ul>
-                {{#eq brukerSpørsmålArbeidUtlandNy "false"}} <!-- gammel brukerspørsmål -->
-                    <li>Arbeid utenfor Norge</li>{{/eq}}
-                {{#eq brukerSpørsmålArbeidUtlandNy "true"}}
-                    <li>Arbeid utenfor Norge</li>{{/eq}}
-                {{#eq brukerSpørsmålOppholdUtenforEØS "true"}}
-                    <li>Opphold utenfor EØS-området</li>{{/eq}}
-                {{#eq brukerSpørsmålOppholdUtenforNorge "true"}}
-                <li>Opphold utenfor Norge</li>{{/eq}}
-                {{#eq brukerSpørsmålOppholdstillatelse "true"}}
-                <li>Oppholdstillatelse</li>{{/eq}}
+                <li>Søknaden om sykepenger og spørsmål om:</li>
+                <ul class="a">
+                    {{#eq brukerSpørsmålArbeidUtlandNy "false"}} <!-- gammel brukerspørsmål -->
+                        <li>Arbeid utenfor Norge</li>{{/eq}}
+                    {{#eq brukerSpørsmålArbeidUtlandNy "true"}}
+                        <li>Arbeid utenfor Norge</li>{{/eq}}
+                    {{#eq brukerSpørsmålOppholdUtenforEØS "true"}}
+                        <li>Opphold utenfor EØS-området</li>{{/eq}}
+                    {{#eq brukerSpørsmålOppholdUtenforNorge "true"}}
+                        <li>Opphold utenfor Norge</li>{{/eq}}
+                    {{#eq brukerSpørsmålOppholdstillatelse "true"}}
+                        <li>Oppholdstillatelse</li>{{/eq}}
+                </ul>
             </ul>
         </dt>
         Vurderingen forutsetter:
         <ul>
             <li>at du ikke har utført noe arbeid utenfor Norge de siste 12 månedene</li>
 
-            <li>at du ikke oppholder deg utenfor EØS-området uten NAV sin godkjenning av utenlandsoppholdet, se
+            <li>at du ikke oppholder deg i utlandet uten NAV sin godkjenning når det er nødvendig, se
                 folketrygdloven § 8-9 andre ledd
             </li>
 
