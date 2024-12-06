@@ -10,23 +10,15 @@
 <div class="container">
     <div id="header"><img class="navlogo" src="{{ image "Navlogo.png" }}"/></div>
     <p class="p3">Unntatt offentlighet etter<br/>
-
         offentleglova § 13 første ledd<br/>
-
-        og NAV-loven § 7 </p>
-    <div class="header">
-        <h1 class="heading">
-            <div>{{> title }}</div>
-            <div>Gjelder søknad om sykepenger {{ fom }} - {{ tom }}</div>
-        </h1>
-    </div>
+        og Nav-loven § 7 </p>
 </div>
 <div class="container">
     <div class="personinfo">
         <div class="persontekst">
             <div class="persontekst__sidetopp">
                 <div class="persontekst__personalia">
-                    <b class="personalia_heading">Personopplysninger</b>
+                    <p class="personalia_heading">Personopplysninger</p>
                     <p class="navn">
                         Navn: {{ navn }}
                     </p>
@@ -44,7 +36,7 @@
         fra:</p>
     <div id="oppsummering" class="oppsummering">
         <ul>
-            <li>Utenlandske trygdemyndigheter (NAVs medlemskapsregister MEDL)</li>
+            <li>Nav sitt medlemskapsregister MEDL</li>
 
             <li>Folkeregisteret</li>
 
@@ -73,7 +65,7 @@
         <ul>
             <li>at du ikke har utført noe arbeid utenfor Norge de siste 12 månedene</li>
 
-            <li>at du ikke oppholder deg i utlandet uten NAV sin godkjenning når det er nødvendig, se
+            <li>at du ikke oppholder deg i utlandet uten Nav sin godkjenning når det er nødvendig, se
                 folketrygdloven § 8-9 andre ledd
             </li>
 
@@ -86,6 +78,8 @@
                 <li> at du ikke er ansatt for en fremmed stat eller en mellomfolkelig organisasjon</li>
             {{/eq}}
         </ul>
+        <div class="opprettet-automatisk">Notatet er opprettet automatisk i forbindelse med søknad om sykepenger for perioden {{ fom }} - {{ tom }}</div>
+        <div class="opprettet-automatisk">Vurderingen er gjort av Arbeids- og velferdsdirektoratets system for automatisk vurdering av lovvalg og medlemskap (systemet “LovMe”).</div>
         </p>
     </div>
 </div>

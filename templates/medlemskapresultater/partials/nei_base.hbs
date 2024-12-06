@@ -9,61 +9,53 @@
 <body>
 <div class="container">
     <div id="header"><img class="navlogo" src="{{ image "Navlogo.png" }}"/></div>
-    <p class="p3">Unntatt offentlighet etter
-        offentleglova § 13 første ledd
-        og NAV-loven § 7 </p>
-    <div class="header">
-        <h1 class="heading">
-            <br/>
-            <br/>
-            <br/>
-            <div>{{> title }}</div>
-        </h1>
-    </div>
+    <p class="p3">Unntatt offentlighet etter<br/>
+        offentleglova § 13 første ledd<br/>
+        og Nav-loven § 7 </p>
 </div>
 <div class="container">
     <div class="personinfo">
         <div class="persontekst">
             <div class="persontekst__sidetopp">
                 <div class="persontekst__personalia">
-                    <b>Personopplysninger</b>
-                    <p>
-                        <br/>
-                        {{ navn }}
+                    <p class="personalia_heading">Personopplysninger</p>
+                    <p class="navn">
+                        Navn: {{ navn }}
                     </p>
                     <p class="id">
-                        Fødselsnummer/Dnr : {{ insert_at fnr 6 }}
+                        Fødselsnummer: {{ insert_at fnr 6 }}
                     </p>
                 </div>
             </div>
         </div>
     </div>
     <p>
-        <br/>
-        <br/>
-        <b>Du er ikke medlem i folketrygden i perioden {{ medlfom }} - {{medltom}}.</b>
+    <h3>Du er ikke medlem i folketrygden i perioden {{ fom }} - {{tom}}.</h3></p>
+    <p class="automatisk-vurdering">
+        Resultatet av vurderingen er at du er omfattet av trygdelovgivningen i {{lovvalgsland}} og du er derfor ikke medlem i folketrygden i perioden {{medlfom}} - {{medltom}}.<br/>
+        Vurderingen er basert på opplysninger om deg fra:
     </p>
-    <p>
-        Medlemskapet er automatisk vurdert.
-        <br/>
-        Resultatet av vurderingen er at du er omfattet av trygdelovgivningen i {{lovvalgsland}}
-        og du er derfor ikke medlem i folketrygden i perioden {{medlfom}} - {{medltom}}.
-        <br/>
-    </p>
-    <div>
-        Den automatiske vurderingen er basert på opplysninger om deg fra:
+    <div id="oppsummering" class="oppsummering">
         <ul>
-            <li> Utenlandske trygdemyndigheter (NAVs medlemskapsregister MEDL)</li>
-            <li> Folkeregisteret</li>
-            <li> Arbeidstaker- og arbeidsgiverregisteret</li>
-            <li> Enhetsregisteret</li>
+            <li>Utenlandske trygdemyndigheter (Nav sitt medlemskapsregister MEDL)</li>
+
+            <li>Folkeregisteret</li>
+
+            <li>Arbeidstaker- og arbeidsgiverregisteret</li>
+
+            <li>Enhetsregisteret</li>
             {{#eq erTredjelandsborger "true"}}
                 <li>Utlendingsdirektoratet</li>
             {{/eq}}
         </ul>
+        <p>
+            Vurderingen forutsetter at du er omfattet av et annet lands trygdelovgivning,
+            og at arbeidsforhold og/eller arbeidsmønster ikke har endret seg etter at du begynte å jobbe i Norge.
+        </p>
+
+        <div class="opprettet-automatisk">Notatet er opprettet automatisk i forbindelse med søknad om {{ytelse}} for perioden {{ fom }} - {{ tom }}</div>
+        <div class="opprettet-automatisk">Vurderingen er gjort av Arbeids- og velferdsdirektoratets system for automatisk vurdering av lovvalg og medlemskap (systemet “LovMe”).</div>
     </div>
-    Vurderingen forutsetter at du er omfattet av et annet lands trygdelovgivning,
-    og at arbeidsforhold og/eller arbeidsmønster ikke har endret seg etter at du begynte å jobbe i Norge.
 </div>
 
 <div id="footer">

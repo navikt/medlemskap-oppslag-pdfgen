@@ -9,8 +9,8 @@
   "medlemskapVurdering" : "JA",
   "brukerSpørsmålArbeidUtlandGammel" : true,
   "brukerSpørsmålArbeidUtlandNy" : true,
-  "brukerSpørsmålOppholdUtenforNorge" : false,
+  "brukerSpørsmålOppholdUtenforNorge" : true,
   "brukerSpørsmålOppholdUtenforEØS" : true,
-  "brukerSpørsmålOppholdstillatelse" : false,
+  "brukerSpørsmålOppholdstillatelse" : true,
   "status" : "JA"
 }
