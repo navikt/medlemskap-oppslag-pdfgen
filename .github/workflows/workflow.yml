@@ -74,7 +74,7 @@ jobs:
         name: Checkout code
       - uses: nais/deploy/actions/deploy@v2
         env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_API_KEY }}
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-fss
           RESOURCE: nais/naiserator.yaml
           VARS: nais/prod-gcp.json
