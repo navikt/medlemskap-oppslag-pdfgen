@@ -1,4 +1,8 @@
 name: Bygg, publish og deploy
+permissions:
+  contents: "read"
+  id-token: "write"
+  packages: "write"
 on:
   workflow_dispatch:
   push:
