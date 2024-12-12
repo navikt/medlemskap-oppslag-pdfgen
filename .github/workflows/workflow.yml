@@ -56,7 +56,7 @@ jobs:
       - uses: nais/deploy/actions/deploy@v2
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: dev-fss
+          CLUSTER: dev-gcp
           RESOURCE: nais/naiserator.yaml
           VARS: nais/dev-gcp.json
           IMAGE: ${{ needs.build-and-publish.outputs.image }}
@@ -73,7 +73,7 @@ jobs:
       - uses: nais/deploy/actions/deploy@v2
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: prod-fss
+          CLUSTER: prod-gcp
           RESOURCE: nais/naiserator.yaml
           VARS: nais/prod-gcp.json
           IMAGE: ${{ needs.build-and-publish.outputs.image }}
