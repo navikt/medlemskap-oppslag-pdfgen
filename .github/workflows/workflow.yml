@@ -51,8 +51,8 @@ jobs:
           CLUSTER: dev-fss
           RESOURCE: nais/naiserator.yaml
           VARS: nais/dev-gcp.json
-          IMAGE: ${{ needs.build_and_push.outputs.image }}
-          TELEMETRY: ${{ needs.build_and_push.outputs.telemetry }}
+          IMAGE: ${{ needs.build-and-publish.outputs.image }}
+          TELEMETRY: ${{ needs.build-and-publish.outputs.telemetry }}
 
   deploy-to-prod-gcp:
     if: github.ref == 'refs/heads/main'
@@ -68,5 +68,5 @@ jobs:
           CLUSTER: prod-fss
           RESOURCE: nais/naiserator.yaml
           VARS: nais/prod-gcp.json
-          IMAGE: ${{ needs.build_and_push.outputs.image }}
-          TELEMETRY: ${{ needs.build_and_push.outputs.telemetry }}
+          IMAGE: ${{ needs.build-and-publish.outputs.image }}
+          TELEMETRY: ${{ needs.build-and-publish.outputs.telemetry }}
