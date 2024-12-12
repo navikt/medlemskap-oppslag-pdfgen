@@ -18,7 +18,7 @@ jobs:
       packages: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
       - name: Generer versjon og image navn
         run: |
           TIME=$(TZ="Europe/Oslo" date +%Y.%m.%d-%H.%M)
@@ -27,6 +27,12 @@ jobs:
           echo "IMAGE=docker.pkg.github.com/${GITHUB_REPOSITORY}/$APP:$VERSION" >> $GITHUB_ENV
           echo "VERSION=$VERSION" >> $GITHUB_ENV
       - run: echo $VERSION > VERSION.txt
+      - uses: nais/docker-build-push@v0
+        id: docker-push
+        with:
+          team: medlemskap # required
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }} # required, but is defined as an organization variable
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }} # required, but is defined as an organization secret
       - name: Last opp VERSION til neste job
         uses: actions/upload-artifact@v4
         with:
