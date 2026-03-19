@@ -13,7 +13,6 @@ spec:
       destinations:
         - id: loki
         - id: elastic
-        - id: secure_logs
   accessPolicy:
     inbound:
       rules:
