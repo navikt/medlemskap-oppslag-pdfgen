@@ -6,8 +6,13 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "20M"
   labels:
-    team: {{team}}
+    team: medlemskap
 spec:
+  observability:
+    logging:
+      destinations:
+        - id: loki
+        - id: elastic
   accessPolicy:
     inbound:
       rules:
