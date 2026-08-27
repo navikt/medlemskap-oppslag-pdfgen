@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8"/>
     <title>{{> doctitle}}</title>
+    <meta name="subject" content="{{> title}}"/>
     {{#block 'medlemskapresultater/partials/style' }}
     {{/block}}
 </head>
 <body>
 <div class="container">
-    <div id="header"><img class="navlogo" src="{{ image "Navlogo.png" }}"/></div>
+    <div id="header"><img class="navlogo" src="{{ image "Navlogo.png" }}" alt="Nav-logo"/></div>
     <p class="p3">Unntatt offentlighet etter<br/>
         offentleglova § 13 første ledd<br/>
         og Nav-loven § 7 </p>
@@ -46,7 +47,7 @@
             {{#eq erTredjelandsborger "true"}}
                 <li>Utlendingsdirektoratet</li>
             {{/eq}}
-            <li>Søknaden om sykepenger og spørsmål om:</li>
+            <li>Søknaden om sykepenger og spørsmål om:
             <ul class="a">
                 {{#eq brukerSpørsmålArbeidUtlandNy "false"}} <!-- gammel brukerspørsmål -->
                     <li>Arbeid utenfor Norge</li>{{/eq}}
@@ -59,6 +60,7 @@
                 {{#eq brukerSpørsmålOppholdstillatelse "true"}}
                     <li>Oppholdstillatelse</li>{{/eq}}
             </ul>
+            </li>
         </ul>
         <p>
             Vurderingen forutsetter:
