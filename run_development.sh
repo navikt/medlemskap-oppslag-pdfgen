@@ -19,8 +19,16 @@ run_container() {
 }
 
 get_hash() {
-    find "$CURRENT_PATH/templates" "$CURRENT_PATH/data" "$CURRENT_PATH/fonts" "$CURRENT_PATH/resources" \
-        -type f -exec md5sum {} \; 2>/dev/null | sort | md5sum
+    if command -v md5sum >/dev/null 2>&1; then
+        find "$CURRENT_PATH/templates" "$CURRENT_PATH/data" "$CURRENT_PATH/fonts" "$CURRENT_PATH/resources" \
+            -type f -exec md5sum {} \; 2>/dev/null | sort | md5sum
+    elif command -v md5 >/dev/null 2>&1; then
+        find "$CURRENT_PATH/templates" "$CURRENT_PATH/data" "$CURRENT_PATH/fonts" "$CURRENT_PATH/resources" \
+            -type f -exec md5 -r {} \; 2>/dev/null | sort | md5 -q
+    else
+        echo "Missing hash tool: install md5sum (coreutils) or use a shell with md5" >&2
+        return 1
+    fi
 }
 
 trap 'kill $CONTAINER_PID 2>/dev/null; exit' INT TERM
