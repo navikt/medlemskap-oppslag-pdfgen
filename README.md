@@ -10,6 +10,6 @@ Det blir da generert en docker container som en kan gå inn på gjennom localhos
 Legg til path for templaten som en ønsker å kjøre til URL'en, f.eks. medlemskapvurdert.
 Det skal da se noe slikt ut: http://localhost:8080/api/v1/genpdf/medlemskapresultater/medlemskapvurdert
 
-I motsetning til den gamle Handlebars-baserte løsningen leser pdfgenrs Typst-malene kun ved
-oppstart. `run_development.sh` overvåker derfor `templates/`, `data/`, `fonts/` og `resources/`
-og restarter containeren automatisk når noe endres.
+pdfgenrs leser Typst-malene kun ved oppstart. `run_development.sh` overvåker derfor
+`templates/`, `data/`, `fonts/` og `resources/` og restarter containeren automatisk når
+noe endres.
