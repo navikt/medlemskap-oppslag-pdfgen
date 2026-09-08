@@ -40,7 +40,7 @@
         Søknaden om sykepenger og spørsmål om:
         #list(
           marker: "◦",
-          ..if is_true(brukerSporsmalArbeidUtlandNy) { ([Arbeid utenfor Norge],) } else { () },
+          ..if is_true(brukerSporsmalArbeidUtlandNy) or is_true(data.at("brukerSpørsmålArbeidUtlandGammel", default: false)) { ([Arbeid utenfor Norge],) } else { () },
           ..if is_true(brukerSporsmalOppholdUtenforEOS) { ([Opphold utenfor EØS-området],) } else { () },
           ..if is_true(brukerSporsmalOppholdUtenforNorge) { ([Opphold utenfor Norge],) } else { () },
           ..if is_true(brukerSporsmalOppholdstillatelse) { ([Oppholdstillatelse],) } else { () },
